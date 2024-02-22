@@ -23,10 +23,10 @@ const Timer = ({ EndDate }) => {
 
   return (
     <div className="flex gap-1 items-center bg-light-gray rounded-lg px-2  font-montserrat font-semibold text-gray-500 shadow-inner">
-      <p className=" font-montserrat font-semibold text-pale-blue">
+      <p className=" font-montserrat font-semibold text-pale-blue md:text-sm text-xs">
         Time Left -{" "}
       </p>
-      <p className="select-none text-sm">
+      <p className="select-none md:text-sm text-xs">
         {timeLeft.days} days {timeLeft.hours} hours
       </p>
     </div>

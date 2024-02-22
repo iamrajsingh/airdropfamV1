@@ -75,7 +75,7 @@ const AirDropCards = ({ banner, $id, endDate }) => {
           <Timer EndDate={endTimer} />
 
           <button
-            className="px-6 py-1 rounded-lg shadow-lift text-pale-blue font-semibold bg-light-gray hover:scale-105 transition-all"
+            className="px-4 py-1 rounded-lg shadow-lift text-pale-blue font-semibold bg-light-gray hover:scale-105 transition-all"
             onClick={() => navigate(`${routes.airdrop}${$id}`)}
           >
             Apply

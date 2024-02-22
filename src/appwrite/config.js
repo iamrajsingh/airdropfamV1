@@ -165,6 +165,7 @@ export class Service {
         conf.appwriteCollectionId,
         [
           Query.equal("isBanner", "Yes"),
+          Query.equal("status", "active"),
         ]
       );
     } catch (error) {

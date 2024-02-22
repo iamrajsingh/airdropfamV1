@@ -13,9 +13,9 @@ const AirdropHero = ({ banner, title, description, category }) => {
         />
       </div>
 
-      <div className="flex flex-col px-1 w-full lg:w-1/2 gap-8">
+      <div className="flex flex-col px-1 w-full lg:w-1/2 gap-6">
         <div className="flex flex-col gap-2">
-          <h2 className="text-4xl font-montserrat font-semibold text-pale-blue capitalize">
+          <h2 className="text-3xl font-montserrat font-semibold text-pale-blue capitalize">
             {title}
           </h2>
           <p className="text-sm font-bold font-montserrat text-gray-500">

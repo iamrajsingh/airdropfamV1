@@ -25,7 +25,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="h-16 rounded-full sticky shadow-lift top-2 z-50 transition-all duration-500 flex items-center px-10 justify-between bg-light-gray">
+    <nav className="h-16 rounded-full sticky shadow-lift top-1 z-50 transition-all duration-500 flex items-center px-10 justify-between bg-light-gray">
       <Logo />
       <div className=" gap-10 hidden lg:flex items-center">
         {navData.map((i) => (

@@ -1,35 +1,42 @@
 import React, { useEffect, useState } from "react";
 import appwriteService from "../../appwrite/config";
 import { Carousel } from "react-responsive-carousel";
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Card = ({ image }) => {
-
-
   return (
-    <div className="lg:h-80 h-60 flex items-center justify-center">
+    <div className="lg:h-80 h-60 flex items-center justify-center px-4">
       <div className=" shadow-2xl rounded-lg">
-        <Carousel autoPlay showThumbs = {false} showArrows={false} showStatus={false} infiniteLoop interval={4500} transitionTime={1000}>
+        {image && (
+          <Carousel
+            autoPlay
+            showThumbs={false}
+            showArrows={false}
+            showStatus={false}
+            infiniteLoop
+            interval={4500}
+            transitionTime={1000}
+          >
+            {image.map((i) => (
+              <img
+                key={i.$id}
+                src={appwriteService.getFilePreview(i.banner)}
+                alt=""
+                className=" object-fill h-[12rem] lg:h-[16rem] w-[28rem] lg:w-[33rem] rounded-lg select-none"
+              />
+            ))}
+          </Carousel>
+        )}
 
-      {
-       image && image.map((i)=> (
-
-          <img
-          key={i.$id}
-          src={appwriteService.getFilePreview(i.banner)}
-            alt=""
-            className=" object-fill h-[14rem] lg:h-[16rem] w-[28rem] lg:w-[30rem] rounded-lg "
-          />
-        ))
-      }
-        </Carousel>
+        {!image && (
+          <div className="h-[11rem] lg:h-[16rem] w-[20rem] lg:w-[37rem] rounded-lg animate-pulse bg-gray-300"></div>
+        )}
       </div>
     </div>
   );
 };
 
 const CardsSection = () => {
-
   const [banners, setBanners] = useState();
 
   const fetchBanner = async () => {
@@ -42,15 +49,12 @@ const CardsSection = () => {
 
   const midpointIndex = banners && Math.ceil(banners.length / 2);
 
-  const banner1 = banners &&  banners.slice(0, midpointIndex);
-const banner2 = banners && banners.slice(midpointIndex);
+  const banner1 = banners && banners.slice(0, midpointIndex);
+  const banner2 = banners && banners.slice(midpointIndex);
 
-  console.log(banner1, "banner");
-
-  useEffect(()=> {
+  useEffect(() => {
     fetchBanner();
-  },[])
-
+  }, []);
 
   return (
     <div className="w-full my-5 grid lg:grid-cols-2 gap-8">

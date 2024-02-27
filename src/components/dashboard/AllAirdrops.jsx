@@ -65,7 +65,7 @@ const AllAirdrops = () => {
           ))}
       </div>
          <div className="w-full flex justify-center gap-2">
-        {[1, 2, 3, 4, 5].map((i) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
           <p
             className={`w-8 h-8  rounded-full  flex items-center justify-center cursor-pointer font-semibold ${
               i === pageNumber

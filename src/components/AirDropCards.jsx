@@ -66,7 +66,7 @@ const AirDropCards = ({ banner, $id, endDate }) => {
     <div className="flex flex-col gap-2  items-center">
       <div className="p-3 shadow-lift bg-light-gray  rounded-lg flex flex-col gap-2 ">
         <img
-          src={banner ? appwriteService.getFilePreview(banner) : banner2}
+          src={banner && appwriteService.getFilePreview(banner)}
           alt=""
           className=" object-fill  w-[26rem] lg:w-[30rem] h-48 md:h-52 rounded-lg shadow-inner"
         />

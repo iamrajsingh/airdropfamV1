@@ -148,7 +148,7 @@ export class Service {
         [
           Query.equal("category", category),
           Query.equal("status", "active"),
-          Query.limit(27),
+          Query.limit(9),
           Query.offset(offset)
         ]
       );

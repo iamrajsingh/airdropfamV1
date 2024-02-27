@@ -77,7 +77,7 @@ const AirdropSection = () => {
   return (
     <div className="flex flex-col gap-5">
       <div className="w-full flex justify-center">
-        <h2 className="text-5xl font-montserrat select-none font-semibold uppercase shadow-lift px-4 py-1 rounded-2xl text-gray-500">
+        <h2 className="lg:text-5xl text-3xl font-montserrat select-none font-semibold uppercase shadow-lift px-4 py-1 rounded-2xl text-gray-500">
           Airdrops
         </h2>
       </div>

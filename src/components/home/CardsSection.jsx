@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Card = ({ image }) => {
   return (
-    <div className="lg:h-80 h-60 flex items-center justify-center px-4">
+    <div className="lg:h-80 h-52 flex items-center justify-center px-4">
       <div className=" shadow-2xl rounded-lg">
         {image && (
           <Carousel
@@ -57,7 +57,7 @@ const CardsSection = () => {
   }, []);
 
   return (
-    <div className="w-full my-5 grid lg:grid-cols-2 gap-8">
+    <div className="w-full my-2 lg:my-5 grid lg:grid-cols-2 gap-1 lg:gap-4">
       <Card image={banner1} />
       <Card image={banner2} />
     </div>

@@ -1,17 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import routes from "../Routes";
 import { FaTwitter } from "react-icons/fa";
 import { BiLogoTelegram } from "react-icons/bi";
+import Logo from "./Logo";
 
 const Footer = () => {
-  const navigate = useNavigate();
 
   return (
-    <div className="border-t border-gray-400 mt-10 flex flex-col gap-2 py-5">
-      <div className="flex lg:flex-row flex-col justify-between flex-wrape border-b border-gray-400 pb-5 gap-8 ">
+    <div className="border-t border-gray-400 mt-10 flex flex-col gap-2 pt-5">
+      <div className="flex flex-wrap justify-between flex-wrape border-b border-gray-400 pb-5 gap-8 ">
         <div className=" h-auto flex flex-col w-full lg:w-1/4 gap-2">
+          <div className="flex gap-3 items-center">
+          <Logo/>
           <h2 className="text-3xl font-semibold">AirdropFam</h2>
+          </div>
           <p className="text-sm text-pale-blue font-palanquin tracking-tight">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus
             nihil consequatur nobis dignissimos reiciendis itaque quod,
@@ -68,11 +69,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex justify-between">
-        <button onClick={() => navigate(routes.login)}>login</button>
-        <button onClick={() => navigate(routes.dashboard)}>Dashboard</button>
-        <button onClick={() => navigate(routes.home)}>Home</button>
-      </div>
+
     </div>
   );
 };

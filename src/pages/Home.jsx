@@ -21,12 +21,13 @@ const Home = () => {
       <Footer />
     </section>
   ) : (
-    <div className=" h-screen flex items-center justify-center flex-col gap-4">
+    <div className=" flex items-center justify-center flex-col gap-4 h-[95vh]">
       <RingLoader color="#366bd6" size={100} />
       <p className="text-4xl font-semibold font-montserrat text-pale-blue">
         AirdropFam
       </p>
     </div>
+
   );
 };
 

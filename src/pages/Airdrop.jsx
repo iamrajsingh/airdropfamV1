@@ -38,7 +38,7 @@ const Airdrop = () => {
   }, [slug, navigate]);
 
   return (
-    <section className="flex flex-col gap-5">
+    <section className="flex flex-col gap-5 min-h-[95vh]">
       <Header />
       {
         !loading ? (

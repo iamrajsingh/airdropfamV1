@@ -11,11 +11,14 @@ const AllAirdrops = () => {
   const [refresh, setRefresh] = useState(false)
   const [pageNumber, setPageNumber] = useState(1);
   const [offset, setOffset] = useState(0);
+  const [totalItems, setTotalItems] = useState(1)
+  const [totalPage, setTotalPage] = useState()
 
   const gettingPost = async () => {
     await appwriteService.getAirdrops(offset, status).then((posts) => {
       if (posts) {
         setPosts(posts.documents);
+        setTotalItems(posts.total)
       }
     });
   };
@@ -30,6 +33,20 @@ const AllAirdrops = () => {
       setOffset(calculatedOffset);
     }
   };
+
+  const handlePages = () => {
+    const totalPage = Math.ceil(Number(totalItems) / 9);
+    const newArray = [];
+
+    for (let i = 1; i <= totalPage; i++) {
+      newArray.push(i);
+    }
+    setTotalPage(newArray);
+  };
+
+  useEffect(() => {
+    handlePages();
+  }, [posts]);
 
   useEffect(() => {
     gettingPost();
@@ -65,7 +82,7 @@ const AllAirdrops = () => {
           ))}
       </div>
          <div className="w-full flex justify-center gap-2">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
+        {totalPage && totalPage.map((i) => (
           <p
             className={`w-8 h-8  rounded-full  flex items-center justify-center cursor-pointer font-semibold ${
               i === pageNumber

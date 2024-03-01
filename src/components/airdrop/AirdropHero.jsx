@@ -3,6 +3,9 @@ import parse from "html-react-parser";
 import appwriteService from "../../appwrite/config";
 
 const AirdropHero = ({ banner, title, description, category }) => {
+
+
+
   return (
     <div className="min-h-96 flex flex-col lg:flex-row gap-10">
       <div className={`w-full lg:w-1/2 h-min lg:sticky lg:top-24 `}>

@@ -11,14 +11,18 @@ const AirdropSection = () => {
   const [posts, setPosts] = useState([]);
   const [totalPage, setTotalPage] = useState(null);
   const [count, setCount] = useState(1);
+  const [totalItems, setTotalItems] = useState();
 
   const fetchAirdrops = async () => {
     try {
       let result;
+
       if (activeMenu === airdropFilterData[0]) {
         result = await appwriteService.getAirdrops(offset, "active");
+        setTotalItems(result?.total);
       } else {
         result = await appwriteService.getAirdropByCategory(offset, activeMenu);
+        setTotalItems(result?.total);
       }
 
       if (result && result.documents) {
@@ -57,7 +61,7 @@ const AirdropSection = () => {
   };
 
   const handlePages = () => {
-    const totalPage = Math.ceil(Number(posts.length) / 9);
+    const totalPage = Math.ceil(Number(totalItems) / 9);
     const newArray = [];
 
     for (let i = 1; i <= totalPage; i++) {
@@ -106,21 +110,20 @@ const AirdropSection = () => {
       </div>
 
       <div className="w-full flex justify-center gap-2">
-        {count > 1 && (
-          <p
-            className={`h-8 px-4 active:scale-95 transition-all rounded flex items-center justify-center cursor-pointer font-semibold ${"shadow-lift bg-light-gray text-pale-blue"}  text-gray-500`}
-            onClick={() => setCount(count - 1)}
-          >
-            Previous
-          </p>
-        )}
-
-        <p
-          className={`h-8 px-4 rounded active:scale-95 transition-all flex items-center justify-center cursor-pointer font-semibold ${"shadow-lift bg-light-gray text-pale-blue"}  text-gray-500`}
-          onClick={() => setCount(count + 1)}
-        >
-          Next
-        </p>
+        {totalPage &&
+          totalPage.map((i) => (
+            <p
+              className={`w-8 h-8  rounded-full  flex items-center justify-center cursor-pointer font-semibold ${
+                i === pageNumber
+                  ? "shadow-lift bg-light-gray text-pale-blue"
+                  : "shadow-inner"
+              }  text-gray-500`}
+              key={i}
+              onClick={() => handlePagination(i)}
+            >
+              {i}
+            </p>
+          ))}
       </div>
     </div>
   );

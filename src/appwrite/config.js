@@ -54,21 +54,16 @@ export class Service {
     }
   }
 
-  async updateAirdropStatus(
-    slug, {
-      status
-    }
-  ){
-    console.log(status);
+  async updateAirdropStatus(slug, { status }) {
     try {
       return await this.databases.updateDocument(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         slug,
         {
-          status
+          status,
         }
-      )
+      );
     } catch (error) {
       console.log(error);
     }
@@ -149,7 +144,7 @@ export class Service {
           Query.equal("category", category),
           Query.equal("status", "active"),
           Query.limit(9),
-          Query.offset(offset)
+          Query.offset(offset),
         ]
       );
     } catch (error) {
@@ -158,15 +153,12 @@ export class Service {
     }
   }
 
-  async getBanners(){
+  async getBanners() {
     try {
       return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
-        [
-          Query.equal("isBanner", "Yes"),
-          Query.equal("status", "active"),
-        ]
+        [Query.equal("isBanner", "Yes"), Query.equal("status", "active")]
       );
     } catch (error) {
       console.log(error);
@@ -179,11 +171,7 @@ export class Service {
       return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
-        [
-          Query.equal("status", status),
-          Query.limit(9),
-          Query.offset(offset)
-        ]
+        [Query.equal("status", status), Query.limit(9), Query.offset(offset)]
       );
     } catch (error) {
       console.log(error);
